@@ -139,7 +139,7 @@ class StressTestActivity : AppCompatActivity() {
         sessionValue = session.second
         callbackValue = callbacks.second
         grid.addView(elapsed.first, LinearLayout.LayoutParams(0, dp(80), 1f).apply { marginEnd = dp(4) })
-        grid.addView(session.first, LinearLayout.LayoutParams(0, dp(80), 1f).apply { marginHorizontal = dp(4) })
+        grid.addView(session.first, LinearLayout.LayoutParams(0, dp(80), 1f).apply { marginStart = dp(4); marginEnd = dp(4) })
         grid.addView(callbacks.first, LinearLayout.LayoutParams(0, dp(80), 1f).apply { marginStart = dp(4) })
         content.addView(grid, LinearLayout.LayoutParams(-1, dp(80)).apply { topMargin = dp(14) })
 
