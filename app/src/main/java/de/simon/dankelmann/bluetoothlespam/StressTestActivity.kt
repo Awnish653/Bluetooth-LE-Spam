@@ -214,6 +214,10 @@ class StressTestActivity : AppCompatActivity() {
             appendLog("Bluetooth is unavailable or switched off.")
             return
         }
+        if (!adapter.isMultipleAdvertisementSupported) {
+            appendLog("BLE advertising is not supported by this phone.")
+            return
+        }
         val leAdvertiser = adapter.bluetoothLeAdvertiser
         if (leAdvertiser == null) {
             appendLog("This device does not support BLE advertising.")
@@ -237,28 +241,31 @@ class StressTestActivity : AppCompatActivity() {
         callback = object : AdvertiseCallback() {
             override fun onStartSuccess(settingsInEffect: AdvertiseSettings) {
                 successCallbacks++
-                appendLog("BLE advertiser started.")
+                running = true
+                startedAt = System.currentTimeMillis()
+                status.text = "●  RUNNING"
+                status.setTextColor(Color.WHITE)
+                startButton.isEnabled = false
+                stopButton.isEnabled = true
+                appendLog("BLE advertiser started successfully.")
+                handler.post(ticker)
             }
             override fun onStartFailure(errorCode: Int) {
+                running = false
                 appendLog("BLE advertiser failed: error=$errorCode")
-                stopAdvertising()
+                status.text = "●  STOPPED"
+                startButton.isEnabled = true
+                stopButton.isEnabled = false
             }
         }
 
         try {
             leAdvertiser.startAdvertising(settings, data, callback)
             advertiser = leAdvertiser
-            running = true
-            startedAt = System.currentTimeMillis()
             sessionId++
             successCallbacks = 0
-            status.text = "●  RUNNING"
-            status.setTextColor(Color.WHITE)
-            startButton.isEnabled = false
-            stopButton.isEnabled = true
-            appendLog("Started app-specific BLE advertisement.")
-            appendLog("No spoofing or popup-triggering payloads.")
-            handler.post(ticker)
+            appendLog("Starting app-specific BLE advertisement…")
+            appendLog("Controlled test mode; no spoofing or popup-triggering payloads.")
         } catch (_: SecurityException) {
             appendLog("Bluetooth permission was revoked.")
         } catch (error: Exception) {
