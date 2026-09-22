@@ -79,6 +79,12 @@
 
         <activity
             android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BluetoothLESpam.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".StressTestActivity"
             android:exported="true"
             android:theme="@style/Theme.BluetoothLESpam.NoActionBar">
             <intent-filter>
