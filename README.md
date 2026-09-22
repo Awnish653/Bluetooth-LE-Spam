@@ -1,4 +1,4 @@
-# Bluetooth LE Spam [![Discord](https://img.shields.io/discord/1170266776731406386?label=Discord&link=https://discord.gg/x4e4Gma585)](https://discord.gg/x4e4Gma585)
+# AWNISH BLE Stress Test [![Discord](https://img.shields.io/discord/1170266776731406386?label=Discord&link=https://discord.gg/x4e4Gma585)](https://discord.gg/x4e4Gma585)
 
 [<img src="https://f-droid.org/badge/get-it-on.png"
 alt="Get it on F-Droid"
@@ -13,6 +13,13 @@ While other apps are available that provide similar functionality, the objective
 > [!NOTE]
 > This project is not actively updated due to no further optimizations to the exploit.
 > Contributions from anyone are appreciated.   
+
+## AWNISH Edition
+
+**Branding:** AWNISH BLE Stress Test  
+**Developer credit:** © 2026 Awnish
+
+The upstream license, notices, credits, and attribution are preserved. The Awnish branding does not claim ownership of upstream code.
 
 ## Requirements
 
