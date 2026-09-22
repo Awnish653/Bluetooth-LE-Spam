@@ -1,6 +1,6 @@
 <resources>
     <!-- Keep that commented out. It will lead to compile errors -->
-    <!--<string name="app_name">Bluetooth LE Spam</string>-->
+    <string name="app_name">AWNISH BLE Stress Test</string>
 
     <string name="bottom_nav_start">Info</string>
     <string name="bottom_nav_advertise">Advertise</string>
